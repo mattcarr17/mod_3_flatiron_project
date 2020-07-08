@@ -41,8 +41,22 @@ Contents of this repo:
 #<insert relevant definitions prior to final repo publication>
     
 #Data:
+This project was based on data from Taarifa and the Tanzanian Ministry of Water.  Additional information on the data and methods used to clean it can be found in the Data folder in this repo.
     
 #Methodology
+This project will utilize a supervised classification machine learning algorithm to classify the functional status of water well pumps.
+#<insert information on final classification model>
+    
+Because we are primarily concerned with correctly identifying the wells with repairs needed or those that are not functioning, we will be using recall as our primary metric for the classification model.  This will lessen the number of nonfunctioning wells or wells in need of repair that are incorrectly identified as being functional. 
+
+In addition to the classification model, we will be answering some additional questions about the water wells in Tanzania using descriptive and inferential statistical methods (additional information to be added describing process to ansswer questions in the 'questions for exploration' section above).
+    
+We needed to make some assumptions about the data for this project, these are as follows:
+- The functional status of a well as recorded in our data set is current and correct.
+- A functional well is currently providing adequate water supply to the population with no interruption in service caused by the pump itself.
+-  A functional, in need of repair well is currently providing adequate water supply to the population with some service interruption in service caused by the pump.  For this well to move to the 'functional' class, the pump will need repair.
+- A nonfunctional/failed well is no longer providing adequate water supply to the population and the pump will need to be replaced or a new well installed to bring the waterpoint back to a functional state.
+
     
 #Summary of Model 
     
