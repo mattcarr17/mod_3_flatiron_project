@@ -3,6 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import confusion_matrix
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.metrics import recall_score
+from sklearn.model_selection import KFold
 
 def cat_df(df, category):
     func_count = {}
@@ -60,3 +63,123 @@ def plot_confusion_matrix(y_true, y_pred):
     labels = ['Functional', 'Repair', 'Failing']
     cm_df = pd.DataFrame(cm, columns=labels, index=labels)
     return cm_df
+
+def process_categories(train_df, test_df, cats):
+    ohe = OneHotEncoder()
+
+    # fit_transform training data
+    train_encoded = ohe.fit_transform(train_df[cats])
+    # transform testing data
+    test_encoded = ohe.transform(test_df[cats])
+
+    # create dataframes
+    train_df_e = pd.DataFrame(train_encoded.todense(), index=train_df[cats].index, columns=ohe.get_feature_names())
+    test_df_e = pd.DataFrame(test_encoded.todense(), index=test_df[cats].index, columns=ohe.get_feature_names())
+
+    # return dataframes
+    return train_df_e, test_df_e
+
+def process_numerics(train_df, test_df, nums):
+    scaler = StandardScaler()
+
+    # fit_transform training data
+    train_df[nums] = scaler.fit_transform(train_df[nums])
+    # transform testing data
+    test_df[nums] = scaler.transform(test_df[nums])
+
+    # return dataframes
+    return train_df, test_df
+
+def process_data(train, test, cats, nums):
+
+    train_df = train[cats+nums].copy()
+    test_df = test[cats+nums].copy()
+
+
+    # OHE categorical data
+    train_encoded, test_encoded = process_categories(train_df, test_df, cats)
+
+    # drop original categorical columns
+    train_df.drop(cats, axis=1, inplace=True)
+    test_df.drop(cats, axis=1, inplace=True)
+
+    # scale numerical data
+    train_df_sc, test_df_sc = process_numerics(train_df, test_df, nums)
+
+    # combine scaled numeric and OHE categorical
+    train_df_sc = pd.concat([train_df_sc, train_encoded], axis=1)
+    test_df_sc = pd.concat([test_df_sc, test_encoded], axis=1)
+
+    # return dataframes
+    return train_df_sc, test_df_sc
+
+def create_base_df():
+
+    # store features and targets in df
+    vals = pd.read_csv('../../notebooks/training_set_values')
+    labels = pd.read_csv('../../notebooks/training_set_labels')
+
+    # join dataframes on 'id' column
+    df = labels.merge(vals, on='id', how='outer')
+
+    # drop unnecessary columns
+    to_drop = ['Unnamed: 0_x', 'Unnamed: 0_y', 'id', 'num_private', 
+    'scheme_name', 'funder', 'longitude', 'latitude', 'wpt_name', 'subvillage', 'region_code', 'district_code',
+    'lga', 'ward', 'public_meeting', 'recorded_by', 'permit', 'extraction_type', 'extraction_type_class',
+    'management', 'payment_type', 'quality_group', 'quantity_group', 'source', 'source_class',
+    'waterpoint_type', 'scheme_management','date_recorded']
+
+    df.drop(to_drop, axis=1, inplace=True)
+
+    # return datarame
+    return df
+
+def cross_val_metrics(x_train, x_test, true_train, true_test, model, n, cat_vars, num_vars):
+
+    #instanitate KFold with n splilts
+    folds = KFold(n_splits=n)
+
+    # cross_val over n splits
+    train_recall = []
+    val_recall = []
+    for train, val in folds.split(x_train):
+
+        # process data
+        x_train_f, x_val_f = process_data(x_train.iloc[train], x_train.iloc[val], cat_vars, num_vars)
+
+        # fit model on processed training data
+        model.fit(x_train_f, true_train.iloc[train])
+
+        # predictions for train and val data
+        train_preds = model.predict(x_train_f)
+        val_preds = model.predict(x_val_f)
+
+        # calculate recall and append to list
+        train_recall.append(recall_score(true_train.iloc[train], train_preds, average='weighted'))
+        val_recall.append(recall_score(true_train.iloc[val], val_preds, average='weighted'))
+
+    # print average recall score
+    print('Training Recall: {}'.format(np.mean(train_recall)))
+    print('Val Recall: {}'.format(np.mean(val_recall)))
+
+    # process data for overall score and confusion matrix
+    x_train_, x_test_ = process_data(x_train, x_test, cat_vars, num_vars)
+
+    # fit model for cm
+    model.fit(x_train_, true_train)
+
+    # make predictions
+    train_pred = model.predict(x_train_)
+    test_pred = model.predict(x_test_)
+
+    # print recall score for training and testing data
+    print('Training Recall: {}'.format(recall_score(true_train, train_pred, average='weighted')))
+    print('Testing Recall: {}'.format(recall_score(true_test, test_pred, average='weighted')))
+    
+    # confusion_matrix for training and testing data
+    print('Training CM:')
+    print(plot_confusion_matrix(true_train, train_pred))
+    print('Testing CM:')
+    print(plot_confusion_matrix(true_test, test_pred))
+
+    return model
