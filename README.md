@@ -81,7 +81,7 @@ We developed many visualizations to illustrate the geographic locations of the w
 
 Additionally we plotted graphs comparing the status of waterpoint by location, type, and water quality.
 
-[](./reports/figures/waterpoint_type_percentage.png)
+[](./reports/figures/waterpoint_type_percentages.png)
 
 
 ## Summary of Model 
