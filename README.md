@@ -81,7 +81,7 @@ We developed many visualizations to illustrate the geographic locations of the w
 
 Additionally we plotted graphs comparing the status of waterpoint by location, type, and water quality.
 
-***insert graphs***
+[](reports/figures/waterpoint_type_percentage.png)
 
 
 ## Summary of Model 
@@ -100,7 +100,7 @@ Functional, Nonfunctional, or Functional needs repair
 ### Final Model
 The final model was a Random Forest Classifier that achieved an overall Recall Score of  0.83.
 
-***insert confusion matrix***
+[](reports/figures/Final Model Confusion Matrix.png)
 
 The recall scores for each catergory are as follows:
 - Functional  0.93
