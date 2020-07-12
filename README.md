@@ -35,6 +35,7 @@ This project seeks to develop a model to classify the functional status of water
 ## Data Set
 This project uses the data from the [Pump it Up: Data Mining the Water Table](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/) competition on [Driven Data](https://www.drivendata.org/), originally compiled by Taarifa and the Tanzanian Ministry of Water.
 
+A cleaned copy of the data is saved in this repo as `data/geodata_clean.csv`.
 
 ## Definitions
 ### Water well status
@@ -81,7 +82,9 @@ We developed many visualizations to illustrate the geographic locations of the w
 
 Additionally we plotted graphs comparing the status of waterpoint by location, type, and water quality.
 
+
 ![](./reports/figures/waterpoint_type_percentages.png)
+
 
 
 ## Summary of Model 
@@ -100,7 +103,9 @@ Functional, Nonfunctional, or Functional needs repair
 ### Final Model
 The final model was a Random Forest Classifier that achieved an overall Recall Score of  0.83.
 
+
 ![](./reports/figures/confusion_matrix.png)
+
 
 The recall scores for each catergory are as follows:
 - Functional  0.93
