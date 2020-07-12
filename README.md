@@ -78,7 +78,12 @@ We needed to make some assumptions about the data for this project, these are as
 Our EDA ascertained that the data set contained several columns of duplicated categorical information. Many of the columns containing containous variables were missing values and/or had large portions of the values as "0". These were dropped before running models.
 
 We developed many visualizations to illustrate the geographic locations of the waterpoints, as well as the quality of water and quantity of water. 
-***insert maps ***
+
+![](./reports/figures/waterpoints_by_function_map.png)
+
+![](./reports/figures/waterpoints_by_type_map.png)
+
+![](./reports/figures/water_quantity_map.png)
 
 Additionally we plotted graphs comparing the status of waterpoint by location, type, and water quality.
 
