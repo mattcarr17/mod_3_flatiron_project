@@ -37,7 +37,6 @@ This project uses the data from the [Pump it Up: Data Mining the Water Table](ht
 
 A cleaned copy of the data is saved in this repo as `data/geodata_clean.csv`.
 
-
 ## Definitions
 ### Water well status
 Functional - supplies adequate water to the population
@@ -83,7 +82,9 @@ We developed many visualizations to illustrate the geographic locations of the w
 
 Additionally we plotted graphs comparing the status of waterpoint by location, type, and water quality.
 
-***insert graphs***
+
+![](./reports/figures/waterpoint_type_percentages.png)
+
 
 
 ## Summary of Model 
@@ -102,7 +103,9 @@ Functional, Nonfunctional, or Functional needs repair
 ### Final Model
 The final model was a Random Forest Classifier that achieved an overall Recall Score of  0.83.
 
-***insert confusion matrix***
+
+![](./reports/figures/confusion_matrix.png)
+
 
 The recall scores for each catergory are as follows:
 - Functional  0.93
