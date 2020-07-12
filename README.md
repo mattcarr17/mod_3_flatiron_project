@@ -81,16 +81,22 @@ We developed many visualizations to illustrate the geographic locations of the w
 
 ![](./reports/figures/waterpoints_by_function_map.png)
 
+The map above shows the distribution of the different functionality status of waterpoints across Tanzania. Of the nearly 60,000 observations in the dataset, only a small proportion, about 4,000, were considered functional but in need of repair. The map above clearly reflects this as the majority of the points on the map are considered either functional or non functional. As the map shows, both functional pumps and non functional pumps are pretty evenly distributed across the entire country.
+
 ![](./reports/figures/waterpoints_by_type_map.png)
+
+The vast majority of pumps were either Communal Standpipe or Hand Pump both of which can be seen all across the country. Communal Standpipe's are slightly less prevelant in the North-Western region of Tanzania but this portion contained mainly Hand Pump. During our anlysis, we found these two pump types to have the highest rate of non functionality. The simpler pumps such as Dam or Improved Spring had lower rates of failure, yet were much less used throughout the country.
 
 ![](./reports/figures/water_quantity_map.png)
 
-Additionally we plotted graphs comparing the status of waterpoint by location, type, and water quality.
+The WHO defines a waterpoint as supplying 'Enough' water if it can provide 50-100 liters of water per day to each person using the waterpoint. We found that across the country, a waterpoint was used by an average population size of 186. This means these pumps needed to be pumping out nearly 20,000 liters of water each day to be considered as supplying 'Enough' water. 
+
+Additionally we plotted graphs comparing the status of waterpoint by type.
 
 
 ![](./reports/figures/waterpoint_type_percentages.png)
 
-
+As mentioned in the waterpoint type map above, Communal Standpipe and Hand Pump were the two most prevalent waterpoint types in the entire country. Yet, besides other, they had the highest rate of non functionality. It is still unclear from our analysis why the pumps considered 'other' had such a high rate of failure and was something we would have liked to explore more if time permitted.
 
 ## Summary of Model 
 
