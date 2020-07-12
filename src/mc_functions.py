@@ -365,3 +365,13 @@ def display_scores(true, preds, model_name):
     
 
     return display_scores
+
+#function to define X,y coordinates from points
+def getPointCoords(row, geom, coord_type):
+    '''
+    function to calculate x and y coordinates from point geometry in shape files
+    '''
+    if coord_type == 'x':
+        return row[geom].x
+    elif coord_type == 'y':
+        return row[geom].y
