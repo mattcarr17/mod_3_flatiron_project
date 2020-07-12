@@ -35,6 +35,8 @@ This project seeks to develop a model to classify the functional status of water
 ## Data Set
 This project uses the data from the [Pump it Up: Data Mining the Water Table](https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/23/) competition on [Driven Data](https://www.drivendata.org/), originally compiled by Taarifa and the Tanzanian Ministry of Water.
 
+A cleaned copy of the data is saved in this repo as `data/geodata_clean.csv`.
+
 
 ## Definitions
 ### Water well status
