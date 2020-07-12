@@ -338,3 +338,30 @@ def cross_val_metrics(x_train, x_test, true_train, true_test, model, n, cat_vars
     print(classification_report(true_test, test_pred))
 
     return model
+
+
+ 
+
+def display_scores(true, preds, model_name):
+   
+    '''
+    
+    Returns a function running recall scores, classification_report, 
+    and confusion_matrix for a model.
+    
+    '''
+    
+    
+    rec = recall_score(true, preds, average='micro')
+    rc = classification_report(true , preds)
+    cm = confusion_matrix(true, preds)
+    
+    print("Model: {}".format(model_name))
+    print("Recall: {}".format(rec))
+
+    print("Classification Report:\n {}".format(rc))
+    print("Confusion Matrix:\n {}".format(cm))
+    print("--------------------------------------------------------------------------------")
+    
+
+    return display_scores
