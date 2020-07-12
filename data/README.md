@@ -9,6 +9,7 @@ csv files
 -training set labels https://s3.amazonaws.com/drivendata-prod/data/7/public/0bf8bc6e-30d0-4c50-956a-603fc693d966.csv
 -training set values https://s3.amazonaws.com/drivendata-prod/data/7/public/4910797b-ee55-40a7-8668-10efd5c1b960.csv
 
+
 ## values information:
 -amount_tsh - Total static head (amount water available to waterpoint)
 -date_recorded - The date the row was entered
@@ -51,8 +52,11 @@ csv files
 -waterpoint_type_group - The kind of waterpoint
 
 ## labels information:
--functional - the waterpoint is operational and there are no repairs needed
--functional needs repair - the waterpoint is operational, but needs repairs
--non functional - the waterpoint is not operational
+-functional - the waterpoint is operational with no interruption in service
+-functional needs repair - the waterpoint has had service interruption up to 3 months
+-non functional - the waterpoint service has been interrtupted for more than 3 months
 
 values and labels information can be obtained at https://www.drivendata.org/competitions/7/pump-it-up-data-mining-the-water-table/page/25/#features_list
+
+## maps and shapefiles
+Data used to crete the maps in this repo was obtained from the Tanzania National Bureau of Statistics https://www.nbs.go.tz/index.php/en/ and has been downloaded into the GIS_Maps folder
