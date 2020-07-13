@@ -24,7 +24,7 @@ Analysis and model by Matt Carr, Dann Morr, and Amanda Potter
 - [src/ directory with project source code](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/src)
 - [figures/ directory with project visuals](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/reports/figures)
 - [Data references](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/references)
-- [Project Conda environment](https://github.com/mattcarr17/mod_3_flatiron_project/blob/master/environment.yml)
+- [Project Conda environment](https://github.com/mattcarr17/mod_3_flatiron_project/blob/master/Wells.yml)
 
 ## Introduction
 Tanzania, as a developing country, struggles with providing clean water to its population of over 57,000,000. There are many waterpoints already established in the country, but some are in need of repair while others have failed altogether.  Understanding which waterpoints will fail can improve maintenance operations and ensure that clean, potable water is available to communities across Tanzania.
