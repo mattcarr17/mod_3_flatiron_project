@@ -82,7 +82,7 @@ dependencies:
   - openjpeg=2.3.0=hb95cd4c_1
   - openssl=1.1.1g=h1de35cc_0
   - pandas=1.0.5=py37h959d312_0
-  - pandas-profiling=1.4.1=py37_0
+  - pandas-profiling=2.8.0=py37_0
   - parso=0.7.0=py_0
   - pcre=8.44=hb1e8313_0
   - pexpect=4.8.0=py37_0
