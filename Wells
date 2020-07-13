@@ -1,5 +1,0 @@
-name: ENVNAME
-channels:
-  - defaults
-prefix: /opt/anaconda3/envs/ENVNAME
-
