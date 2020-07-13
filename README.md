@@ -21,10 +21,10 @@ Analysis and model by Matt Carr, Dann Morr, and Amanda Potter
 - [Report Notebook](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/notebooks/report)
 - [Project Presentation](https://github.com/mattcarr17/mod_3_flatiron_project/blob/master/reports/Presentation.pdf)
 - [Data download](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/data)
-- [src/ directory with project source code](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/src) ***need to update***
-- [figures/ directory with project visuals](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/reports/figures) ***need to update***
-- [Data references](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/references) ***need to update***
-- [Project Conda environment](https://github.com/mattcarr17/mod_3_flatiron_project/blob/master/environment.yml) ***need to add final yml***
+- [src/ directory with project source code](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/src)
+- [figures/ directory with project visuals](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/reports/figures)
+- [Data references](https://github.com/mattcarr17/mod_3_flatiron_project/tree/master/references)
+- [Project Conda environment](https://github.com/mattcarr17/mod_3_flatiron_project/blob/master/environment.yml)
 
 ## Introduction
 Tanzania, as a developing country, struggles with providing clean water to its population of over 57,000,000. There are many waterpoints already established in the country, but some are in need of repair while others have failed altogether.  Understanding which waterpoints will fail can improve maintenance operations and ensure that clean, potable water is available to communities across Tanzania.
@@ -66,8 +66,6 @@ This project will utilize a supervised classification machine learning algorithm
 Our final model is a Random Forest Classifier.
     
 We are primarily concerned with correctly identifying the wells in the catergories *Nonfunctional* and *Functional needs repair* and will be using *recall* as our primary metric for the classification model.  This aim is to reduce the number of nonfunctioning wells or wells in need of repair that are incorrectly identified as being functional. 
-
-***In addition to the classification model, we will be answering some additional questions about the water wells in Tanzania using descriptive and inferential statistical methods (additional information to be added describing process to answer questions in the 'questions for exploration' section above).***
     
 We needed to make some assumptions about the data for this project, these are as follows:
 - The functional status of a well as recorded in our data set is current and correct.
